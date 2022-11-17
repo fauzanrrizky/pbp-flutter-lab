@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:counter_7/drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,7 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Color _parityColor = Color(0xFFFF0000);
   bool _minusVisible = false;
 
-
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -75,7 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _setEverything() {
-    setState(() { // Conditionals sesuai soal
+    setState(() {
+      // Conditionals sesuai soal
       _parity = _counter % 2 == 1 ? "GANJIL" : "GENAP";
       _parityColor = _counter % 2 == 1 ? Color(0xFF42A5F5) : Color(0xFFFF0000);
       _minusVisible = _counter == 0 ? false : true;
@@ -96,6 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
+      drawer: AppDrawer(),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -118,11 +120,11 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               '$_parity',
-              style: TextStyle( // Adjust styling text
-                color: _parityColor
-              ),
+              style: TextStyle(
+                  // Adjust styling text
+                  color: _parityColor),
             ),
-            Text (
+            Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
@@ -137,7 +139,8 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Visibility(
               visible: _minusVisible,
               child: FloatingActionButton(
-                onPressed: _decrementCounter, // Panggil fungsi ketika tombol dipencet
+                onPressed:
+                    _decrementCounter, // Panggil fungsi ketika tombol dipencet
                 tooltip: 'Decrement', // Bingung knp gamuncul
                 child: const Icon(Icons.remove), // Logo minus
               ),
@@ -146,7 +149,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: EdgeInsets.all(20.0),
             child: FloatingActionButton(
-              onPressed: _incrementCounter, // Panggil fungsi ketika tombol dipencet
+              onPressed:
+                  _incrementCounter, // Panggil fungsi ketika tombol dipencet
               tooltip: 'Increment', // Bingung knp gamuncul
               child: const Icon(Icons.add), // Logo plus
             ),
@@ -156,4 +160,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-

@@ -33,3 +33,41 @@ setState() digunakan untuk melakukan build ulang dari stateful widgets dan child
  4. Buat fungsi  `_decrementCounter` untuk implementasi decrement.
  5. Gunakan padding untuk styling
  6. Untuk modifikasi visibility tombol decrement saat counter 0, buat variabel boolean `_minusVisible`
+
+
+# Tugas 8 Readme
+
+## Perbedaan Navigator.push dan Navigator.pushReplacement
+
+Perbedaan terletak ketika melakukan perpindahan layer
+
+ - Navigator.push : Menambahkan rute lain keatas tumpukan screen (stack)
+ - Navigator.pushReplacement : Mengganti layer sebelumnya dengan layer itu sendiri yang ditunjuk oleh page dari Navigator.pushReplacement (tidak menimpa layer sebelumnya)
+
+## Widget yang dipakai di proyek kali ini
+
+ - Drawer : panel sebagai navigator untuk berpindah halaman
+ - Form : sebagai container untuk input2
+ - Column & row : Styling widgets untuk membentuk kolom dan baris
+ - Padding : styling agar lebih rapih
+ - TextButton : untuk submit form
+ - Card : Menampilkan data budget
+
+## Jenis event yang ada pada flutter
+
+ - onPressed : Trigger ketika pencet sesuatu
+ - onTap  : Ketika tap sesuatu
+ - onSaved : Trigger ketika form disave
+ - onCHanged : Trigger ketika field text form, atau apapun berubah isinya
+
+## Cara kerja navigator mengganti halaman pada aplikasi flutter
+Ketika navigator push, maka akan menimpa layer sebelumnya, layer sebelumnya tetap ada di bawah layer yang baru. Kalau pake navigator.pushReplacement, pindah layer yang dituju tanpa menimpa layer sebelumnya.
+
+## Bagaimana cara implementasi checklist
+
+ 1. Membuat file drawer yang berisi AppDrawer sebagai navigator untuk berpindah halaman.
+ 2. Menambahkan children di AppDrawer yang berfungsi untuk berpindah halaman sesuai dengan tombol masing-masing
+ 3. Membuat file form yntuk menambahkan budget, file form menggunakan TextFormField dan DropdownButton
+ 4. Membuat file data tambah_budget untuk melakukan menambahkan dan menyimpan data budget
+ 5. Membuat file data_budget untuk menampilkan data budget yang sudah disimpan lewat tambah_budget.
+
