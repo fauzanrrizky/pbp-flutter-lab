@@ -71,3 +71,32 @@ Ketika navigator push, maka akan menimpa layer sebelumnya, layer sebelumnya teta
  4. Membuat file data tambah_budget untuk melakukan menambahkan dan menyimpan data budget
  5. Membuat file data_budget untuk menampilkan data budget yang sudah disimpan lewat tambah_budget.
 
+# Tugas 9 Readme
+## Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+Pengambilan data tanpa menggunakan model tetap bisa dilakukan, karena pengambilan data (melakukan HTTP Request) tidak berhubungan dengan model. Namun, menyimpan data JSON dengan bantuan model dapat lebih mudah diproses.
+
+## Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
+-   Text : menampilkan text
+-   Column, Row : menata widgets dalam bentuk kolom dan baris
+- TextSpan : dapat menggunakan beberapa text pada 1 baris dengan style yang berbeda-beda
+-   FutureBuilder : melakukan build dengan data future (harus menunggu http request)
+- Container : mengatur lokasi widgets
+-   ListView : membuat banyak widget sekaligus dan memastikan jika berlebihan children maka bisa discroll
+-   Card : membantu menampilkan data watchlist
+-   InkWell : card dapat ditekan dan memberikan ripple animation
+-   ElevatedButton : button biasa yang terlihat "diangkat" agar meningkatkan penampilan
+
+## Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
+Flutter memanggil fungsi fetchWatchList() yang ada di file fetch_mywatchlist.dart. fungsi tersebut melakukan HTTP GET Request ke https://pbp-tugas-2-insta-x.herokuapp.com/mywatchlist/json/ untuk mendapatkan data watchlist yang berbentuk JSON.
+
+Setelah itu, fetchWatchList() menggunakan model Watch dan menggunakan data JSON yang diterima untuk meng-construct Watch. Data seluruh Watch yang telah di construct kemudian diterima oleh FutureBuilder. Seluruh Card akan di build dengan format yang tepat oleh FutureBuilder. Seluruh data Watch juga disimpan sehingga digunakan sebagai context saat membuka halaman detail
+
+
+## Bagaimana Cara Mengimplementasi Checklist
+
+1. Menambahkan tombol navigasi pada drawer untuk ke halaman MyWatchList   
+
+2. Membuat file `mywatchlist.dart` sebagai model untuk watchlist, dengan parameter sesuai.
+3. `Membuat fetch_mywatchlist.dart`yang akan menjalankan fungsi fetchWatchList() yang berfungsi melakukan pengambilan data dari endpoint JSON.
+4. FutureBuilder akan membuat card sesuai dengan data yang didapat dari fungsi fetchWatchList()
+5. Menambahkan tombol untuk kembali ke daftar myWatchList

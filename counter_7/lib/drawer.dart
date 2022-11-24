@@ -2,6 +2,7 @@ import 'package:counter_7/main.dart';
 import 'package:flutter/material.dart';
 import 'package:counter_7/form.dart';
 import 'package:counter_7/data_budget.dart';
+import 'package:counter_7/mywatchlist.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -41,6 +42,17 @@ class AppDrawer extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const DataPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('My Watch List'),
+            onTap: () {
+              // Route menu ke halaman form
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const MyWatchListPage()),
               );
             },
           ),
